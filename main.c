@@ -129,6 +129,8 @@ int main(int argc, char **argv){
 
 // parametre initial de la fentre
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+	SDL_Surface* icon = IMG_Load("icon.png");
+	SDL_SetWindowIcon(window, icon);
 	
 // initialisation TTF
 	TTF_Init();
