@@ -46,7 +46,7 @@ SDL_Rect rectangle(int x,int y,int w ,int h){
 	return rect;
 }
 
-// fonction pour creer le text et l'espace qui lui sera accordé
+// fonction pour creer le texte et l'espace qui lui sera accordé
 void Ecrire(SDL_Renderer *renderer, int x, int y, char *text, TTF_Font *font, SDL_Texture **texture, SDL_Rect *destination) {
 	int text_width;
 	int text_height;
