@@ -9,7 +9,7 @@
 #define width 800
 #define height 600
 
-#define LEN_MAX 7 //nbadloha mba3d nrodoha tetbadel bel difficulteet
+#define LEN_MAX 7 //9adeh el utilisateur inajem yekteb men 7arf nbadloha mba3d nrodoha tetbadel bel difficulteet
 
 // Utility macros ntestiw beha el code
 #define CHECK_ERROR(test, message) \
