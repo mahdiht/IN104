@@ -53,7 +53,7 @@ void Ecrire(SDL_Renderer *renderer, int x, int y, char *text, TTF_Font *font, SD
 	SDL_Surface *surface;
 	
 	if (text[0] == '\0'){
-		SDL_Color textColor = {255, 255, 255, 255};
+		SDL_Color textColor = {255, 255, 255, 255};	// solution mel 7it taw n5amemou fi 7al 5ir mba3d 
 		surface = TTF_RenderText_Solid(font, "Hello", textColor);
 	}
 	else {
