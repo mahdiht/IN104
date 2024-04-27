@@ -244,6 +244,7 @@ int main(int argc, char **argv){
 
 // liberation et destruction
 	SDL_StopTextInput();
+	SDL_FreeSurface(icon);
 	SDL_DestroyTexture(texte_texture);
 	SDL_DestroyTexture(brouillon_texture);
 	SDL_DestroyTexture(image_texture);
