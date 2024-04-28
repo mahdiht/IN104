@@ -1,14 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
+#include <time.h>
 
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_ttf.h>
 
 #define width 800
 #define height 600
-
+#define MAX_WORD_LENGTH 100
 #define LEN_MAX 7 //9adeh el utilisateur inajem yekteb men 7arf nbadloha mba3d nrodoha tetbadel bel difficulteet
 
 // Utility macros ntestiw beha el code
@@ -19,11 +21,64 @@
             exit(1); \
         } \
     } while(0)
+// fonction qui trouve un mot aléatoirement
+char* lireMotAleatoire(const char* nomFichier) {
+    FILE* fichier = fopen(nomFichier, "r");
+    if (fichier == NULL) {
+        printf("Erreur : Impossible d'ouvrir le fichier %s.\n", nomFichier);
+        exit(EXIT_FAILURE);
+    }
+    
+    // Compter le nombre de mots dans le fichier
+    int nombreDeMots = 0;
+    char mot[MAX_WORD_LENGTH];
+    while (fgets(mot, MAX_WORD_LENGTH, fichier) != NULL) {
+        nombreDeMots++;
+    }
+    
+    // Choisir un mot aléatoire
+    srand(time(NULL));
+    int motAleatoireIndex = rand() % nombreDeMots;
+    
+    // Retourner au début du fichier
+    rewind(fichier);
+    
+    // Lire le mot à l'indice aléatoire
+    int i = 0;
+    while (fgets(mot, MAX_WORD_LENGTH, fichier) != NULL) {
+        if (i == motAleatoireIndex) {
+            // Allouer de la mémoire pour le mot retourné
+            char* motRetourne = malloc(strlen(mot) + 1);
+            if (motRetourne == NULL) {
+                printf("Erreur : Échec de l'allocation de mémoire.\n");
+                exit(EXIT_FAILURE);
+            }
+            strcpy(motRetourne, mot);
+            
+            // Supprimer le caractère de saut de ligne à la fin
+            if (motRetourne[strlen(motRetourne) - 1] == '\n') {
+                motRetourne[strlen(motRetourne) - 1] = '\0';
+            }
+            
+            // Fermer le fichier et retourner le mot
+            fclose(fichier);
+            return motRetourne;
+        }
+        i++;
+    }
+    
+    // Fermer le fichier (au cas où le nombre de mots serait inférieur à motAleatoireIndex)
+    fclose(fichier);
+    
+    // Si quelque chose ne s'est pas passé comme prévu, retourner NULL
+    return NULL;
+}
+
 
 // initilisation jeu hangman comme variables globals
-	const char* word= "bonjour";  //nbadolha mba3d ki na9raw 7seb el dictionnaire
+
 	int essais=0;
-	char brouillon[10];
+	char brouillon[20];
 	char stickman[13] = "Hangman_0.png";
 
 
@@ -46,7 +101,7 @@ SDL_Rect rectangle(int x,int y,int w ,int h){
 	return rect;
 }
 
-// fonction pour creer le texte et l'espace qui lui sera accordé
+// fonction pour creer le text et l'espace qui lui sera accordé
 void Ecrire(SDL_Renderer *renderer, int x, int y, char *text, TTF_Font *font, SDL_Texture **texture, SDL_Rect *destination) {
 	int text_width;
 	int text_height;
@@ -69,7 +124,7 @@ void Ecrire(SDL_Renderer *renderer, int x, int y, char *text, TTF_Font *font, SD
 	*destination = rectangle(x,y,text_width,text_height);
 }
 
-void hangman(char* saisi){
+void hangman(char* saisi,char* word){
 		
 	if (strlen(saisi)==1){
 		if (strchr(word, saisi[0]) != NULL) {
@@ -99,6 +154,8 @@ void hangman(char* saisi){
 }	
 
 int main(int argc, char **argv){
+	const char* nomFichier = "WordList.txt";
+    char* word = lireMotAleatoire(nomFichier);
 
 // initialisation du brouillon
 	for (int i = 0; i < strlen(word); i++) {
@@ -129,8 +186,6 @@ int main(int argc, char **argv){
 
 // parametre initial de la fentre
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-	SDL_Surface* icon = IMG_Load("icon.png");
-	SDL_SetWindowIcon(window, icon);
 	
 // initialisation TTF
 	TTF_Init();
@@ -181,7 +236,7 @@ int main(int argc, char **argv){
 			}
 			
 			else if (event.key.keysym.sym==SDLK_RETURN && len){  //confirmer la saisie
-				hangman(saisi);
+				hangman(saisi,word);
 				
 				Ecrire(renderer, 0, image_destination.y + image_destination.h, brouillon, font, &brouillon_texture, &brouillon_destination);
 			
@@ -244,7 +299,6 @@ int main(int argc, char **argv){
 
 // liberation et destruction
 	SDL_StopTextInput();
-	SDL_FreeSurface(icon);
 	SDL_DestroyTexture(texte_texture);
 	SDL_DestroyTexture(brouillon_texture);
 	SDL_DestroyTexture(image_texture);
