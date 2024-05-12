@@ -1,0 +1,31 @@
+
+cat, A furry pet that purrs.
+sun, The star at the center of our solar system.
+cup, A vessel used for drinking.
+dog, Man's best friend.
+tea, A hot beverage often flavored with herbs or spices.
+sky, The expanse above us where clouds and stars reside.
+key, An object used to unlock or operate something.
+map, A visual representation of geographical information.
+egg, A source of protein often cooked for breakfast.
+pen, An instrument used for writing.
+bat, A flying mammal often associated with vampires.
+bus, A large vehicle used for public transportation.
+hat, Headwear worn for protection or fashion.
+bed, Furniture used for sleeping.
+zip, A fastener used to open and close clothing.
+pig, A farm animal known for its oinking and pink skin.
+fan, An electrical device used for cooling.
+lid, A cover for a container.
+map, A diagrammatic representation of an area.
+net, A meshed device used for catching or trapping.
+tip, A small piece of advice or suggestion.
+jet, A fast-flying aircraft.
+gem, A precious stone or mineral.
+cup, A small container for holding liquids.
+box, A container with a flat base and sides.
+ant, A small insect that lives in colonies.
+jar, A cylindrical container with a wide mouth.
+rug, A piece of thick fabric for covering a floor.
+dot, A small round mark or spot.
+ice, Frozen water.

@@ -1,0 +1,30 @@
+Symphony, Elaborate musical composition.
+Elephant, Large mammal with a trunk.
+Password, Secret code for authentication.
+Birthday, Celebration of one's date of birth.
+Hospital, Facility for medical treatment.
+Mountain, Elevated landform with peak.
+Firework, Explosive display for celebrations.
+Tadpole, Young stage of a frog.
+Necklace, Ornament worn around the neck.
+Railroad, System of tracks for trains.
+Midnight, Middle of the night.
+Building, Structure with walls and a roof.
+Football, Popular sport played with a ball.
+Campaign, Organized effort to achieve a goal.
+Festival, Celebration or event with activities.
+Hospital, Facility for medical treatment.
+Mountain, Elevated landform with a peak.
+Language, System of communication.
+Internet, Global computer network.
+Medicine, Substance used to treat illness.
+Painting, Artistic creation using colors.
+Festival, Event marked by celebration and activities.
+Research, Systematic investigation to discover facts.
+Drinking, Act of consuming liquids, often socially.
+Sandwich, Food made of two slices of bread with filling.
+Hospital, Facility for medical treatment and care.
+Festival, Celebratory event with performances and activities.
+Mountain, Large landform rising above its surroundings.
+Campaign, Organized effort to achieve a specific goal.
+Railroad, Network of tracks used for trains.

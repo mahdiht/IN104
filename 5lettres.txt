@@ -1,0 +1,30 @@
+house,Place to call home
+Tiger,Striped feline predator
+Lemon,Yellow citrus fruit
+Mouse,Small rodent often found indoors
+Beach,Sandy shore by the sea
+Snake,Slithery reptile without legs
+Grape,Small fruit often used to make wine
+Clock,Device to tell time
+Chair,Furniture to sit on
+Cloud,Fluffy mass in the sky
+Smile,Curve of happiness
+Maple,Tree known for its syrup
+Music,Art of sound
+Bread,Basic food made from dough
+Earth,Planet we inhabit
+Water,Liquid essential for life
+Angel,Heavenly being
+Smile,Curve of happiness
+Apple,Common fruit
+Plant,Green organism with leaves
+Glint, Brief flash of light
+Mirth, Amusement or laughter
+Quirk, Peculiar or unexpected trait
+Blush, Facial expression indicating embarrassment
+Pluck, Courage or determination
+Mural, Large painting on a wall
+Whisk, Beat or stir rapidly
+Stove, Appliance for cooking food
+Yacht, Luxury boat for leisure
+Comet, Celestial body with a tail of gas and dust

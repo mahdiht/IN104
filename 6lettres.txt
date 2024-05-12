@@ -1,0 +1,30 @@
+Spring,Season of blooming
+Flower,Blossoming plant
+Planet,Celestial body orbiting a star
+Rocket,Vehicle for space travel
+Turtle,Shelled reptile
+Camera,Device for taking photographs
+Dragon,Mythical fire-breathing creature
+Banana,Yellow tropical fruit
+Guitar,Stringed musical instrument
+Castle,Medieval fortified building
+Mosaic, Artwork made from small pieces.
+Dragon, Mythical creature in legends.
+Jaguar, Large spotted cat native to the Americas.
+Tunnel, Underground passage for transportation.
+Shadow, Dark area created by blocking light.
+Banana, Yellow fruit with a peel.
+Cherry, Small red fruit.
+Rocket, Vehicle for space exploration.
+Silver, Shiny metal often used in jewelry.
+Forest, Dense area with trees and wildlife.
+Doctor, Medical professional
+Market, Place of buying and selling goods
+Sphere, Three-dimensional round object
+Banana, Tropical yellow fruit
+Anchor, Heavy object used to secure a ship
+Circus, Entertainment show with performers and animals
+Rocket, Vehicle used for space travel
+Wisdom, Knowledge and good judgment
+Planet, Celestial body orbiting a star
+Garden, Outdoor space for growing plants
