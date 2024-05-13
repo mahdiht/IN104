@@ -103,7 +103,24 @@ void hangman(char* saisi,char* word){
 	}
 	
 }	
+// Fonction pour afficher l'arrière-plan avec une texture
+void afficherArrierePlan(SDL_Renderer *renderer, SDL_Texture *backgroundTexture) {
+    // Obtenir les dimensions de la fenêtre
+    int largeurFenetre, hauteurFenetre;
+    SDL_GetRendererOutputSize(renderer, &largeurFenetre, &hauteurFenetre);
 
+    // Obtenir les dimensions de la texture d'arrière-plan
+    int largeurTexture, hauteurTexture;
+    SDL_QueryTexture(backgroundTexture, NULL, NULL, &largeurTexture, &hauteurTexture);
+
+    // Calculer les dimensions et la position de l'arrière-plan pour le centrer dans la fenêtre
+    int x = (largeurFenetre - largeurTexture) / 2;
+    int y = (hauteurFenetre - hauteurTexture) / 2;
+
+    // Afficher l'arrière-plan
+    SDL_Rect destRect = {x, y, largeurTexture, hauteurTexture};
+    SDL_RenderCopy(renderer, backgroundTexture, NULL, &destRect);
+}
 void init_game(char c){
 	nomFichier[0]=c;
 	char *word;
@@ -134,6 +151,7 @@ void init_game(char c){
 	CHECK_ERROR(renderer == NULL, SDL_GetError());
 
 
+
 // chargement de l'image
 	SDL_Texture * image_texture = ImporterImage(stickman, renderer);
 	int image_width, image_height;
@@ -145,7 +163,9 @@ void init_game(char c){
 	
 // initialisation TTF
 	TTF_Init();
+
 	
+
 // initialisation text input
 	SDL_StartTextInput();
 	char saisi[LEN_MAX + 1] = {0};
@@ -300,6 +320,7 @@ void afficherOptions(SDL_Renderer *renderer, TTF_Font *font) {
     afficherTexte(renderer, font, "7 Lettres", 300, 350);
     afficherTexte(renderer, font, "8 Lettres", 300, 400);
 }
+
 int main(int argc, char *argv[]) {
     // Initialisation de SDL
     SDL_Init(SDL_INIT_VIDEO);
@@ -317,7 +338,12 @@ int main(int argc, char *argv[]) {
         printf("Erreur lors du chargement de la police : %s\n", TTF_GetError());
         return 1;
     }
-
+    // Charger l'image d'arrière-plan
+    SDL_Texture *backgroundTexture = IMG_LoadTexture(renderer, "ap.png");
+    if (!backgroundTexture) {
+        printf("Erreur lors du chargement de l'image d'arrière-plan : %s\n", SDL_GetError());
+        return 1;
+    }
     // Boucle principale
     int quitter = 0;
     int jouer = 0;
@@ -361,6 +387,8 @@ int main(int argc, char *argv[]) {
         // Effacer l'écran
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         SDL_RenderClear(renderer);
+		// Afficher l'arrière-plan
+        afficherArrierePlan(renderer, backgroundTexture);
 
         if (!jouer && !optionsActive) {
             afficherMenuPrincipal(renderer, font);
@@ -372,6 +400,7 @@ int main(int argc, char *argv[]) {
             // Ici, vous pouvez ouvrir une nouvelle fenêtre ou changer le contenu de la fenêtre actuelle pour afficher le jeu.
             // Par souci de simplicité, je vais juste afficher "Jeu en cours..." dans la même fenêtre.
             init_game(c);
+
         }
 
         // Mettre à jour l'écran
