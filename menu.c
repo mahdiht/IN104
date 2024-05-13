@@ -30,6 +30,7 @@
 	int essais=0;
 	char brouillon[20];
 	char stickman[13] = "Hangman_0.png";
+	char nomFichier[15]="mlettres.txt";
 
 
 // fonction qui va charger l'image en une texture lisible par SDL
@@ -103,8 +104,8 @@ void hangman(char* saisi,char* word){
 	
 }	
 
-void init_game(){
-	const char* nomFichier = "3lettres.txt";
+void init_game(char c){
+	nomFichier[0]=c;
 	char *word;
 	char *hint;
 
@@ -190,7 +191,7 @@ void init_game(){
 		else if(event.type == SDL_KEYDOWN){	//pression de touche
 			
 			if (event.key.keysym.sym == SDLK_BACKSPACE && len){	//effacer
-				saisi[len - 1] = 0;
+				saisi[len - 1] = 0;  
 				len--;
 				asaisi=true;
 			}
@@ -284,13 +285,20 @@ void afficherTexte(SDL_Renderer *renderer, TTF_Font *font, const char *texte, in
     SDL_DestroyTexture(texture);
 }
 
-// Fonction pour afficher le menu
-void afficherMenu(SDL_Renderer *renderer, TTF_Font *font) {
-    // Vous pouvez personnaliser le menu en ajoutant d'autres options comme la difficulté, etc.
-    afficherTexte(renderer, font, "MAIN MENU", 300, 50);
-    afficherTexte(renderer, font, "1. PLAY", 300, 150);
-    afficherTexte(renderer, font, "2. OPTIONS", 300, 200);
-    afficherTexte(renderer, font, "3. QUIT", 300, 250);
+// Fonction pour afficher le menu principal
+void afficherMenuPrincipal(SDL_Renderer *renderer, TTF_Font *font) {
+    afficherTexte(renderer, font, "Menu Principal", 300, 50);
+    afficherTexte(renderer, font, "1. Jouer", 300, 150);
+    afficherTexte(renderer, font, "2. Options", 300, 200);
+}
+void afficherOptions(SDL_Renderer *renderer, TTF_Font *font) {
+    afficherTexte(renderer, font, "Options", 300, 50);
+    afficherTexte(renderer, font, "3 Lettres", 300, 150);
+    afficherTexte(renderer, font, "4 Lettres", 300, 200);
+    afficherTexte(renderer, font, "5 Lettres", 300, 250);
+    afficherTexte(renderer, font, "6 Lettres", 300, 300);
+    afficherTexte(renderer, font, "7 Lettres", 300, 350);
+    afficherTexte(renderer, font, "8 Lettres", 300, 400);
 }
 int main(int argc, char *argv[]) {
     // Initialisation de SDL
@@ -313,6 +321,8 @@ int main(int argc, char *argv[]) {
     // Boucle principale
     int quitter = 0;
     int jouer = 0;
+	int optionsActive = 0;
+	char c;
     while (!quitter) {
         SDL_Event event;
         while (SDL_PollEvent(&event)) {
@@ -322,8 +332,27 @@ int main(int argc, char *argv[]) {
                 if (event.button.button == SDL_BUTTON_LEFT) {
                     int x = event.button.x;
                     int y = event.button.y;
-                    if (x >= 300 && x <= 500 && y >= 150 && y <= 180) {
-                        jouer = 1;
+                    if (!optionsActive) {
+                        if (x >= 300 && x <= 500 && y >= 150 && y <= 180) {
+                            jouer = 1;
+                        } else if (x >= 300 && x <= 500 && y >= 200 && y <= 230) {
+                            optionsActive = 1;
+                        }
+                    } else {
+                        if (x >= 300 && x <= 500 && y >= 150 && y <= 180) {
+                            c='3';
+                        } else if (x >= 300 && x <= 500 && y >= 200 && y <= 230) {
+                            c='4';
+                        } else if (x >= 300 && x <= 500 && y >= 250 && y <= 280) {
+                            c='5';
+                        } else if (x >= 300 && x <= 500 && y >= 300 && y <= 330) {
+                            c='6';
+                        } else if (x >= 300 && x <= 500 && y >= 350 && y <= 380) {
+                            c='7';
+                        } else if (x >= 300 && x <= 500 && y >= 400 && y <= 430) {
+                            c='8';
+                        }
+                        optionsActive = 0; // Fermer le sous-menu Options après avoir cliqué sur une option
                     }
                 }
             }
@@ -333,14 +362,16 @@ int main(int argc, char *argv[]) {
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         SDL_RenderClear(renderer);
 
-        // Afficher le menu
-        if (jouer == 0) {
-            afficherMenu(renderer, font);
-        } else {
+        if (!jouer && !optionsActive) {
+            afficherMenuPrincipal(renderer, font);
+        } else if (optionsActive) {
+            afficherOptions(renderer, font);
+        }
+         else if (jouer) {
             // Code pour démarrer le jeu
             // Ici, vous pouvez ouvrir une nouvelle fenêtre ou changer le contenu de la fenêtre actuelle pour afficher le jeu.
             // Par souci de simplicité, je vais juste afficher "Jeu en cours..." dans la même fenêtre.
-            init_game();
+            init_game(c);
         }
 
         // Mettre à jour l'écran
