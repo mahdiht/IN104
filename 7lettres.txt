@@ -1,30 +1,30 @@
-Eclipse, Celestial event blocking the sun's light.
-Rainbow, Colorful arc in the sky after rain.
-Backpack, Bag worn on the back for carrying items.
-Diamond, Precious gemstone known for its hardness.
-Bicycle, Two-wheeled vehicle powered by pedals.
-Library, Place housing collections of books.
-Thunder, Sound caused by lightning.
-Theater, Venue for live performances.
-Lantern, Portable light source with a protective casing.
-Weekend, Period of time spanning Saturday and Sunday.
-Weather, Atmospheric conditions at a specific time and place.
-Concert, Musical performance in front of an audience.
-Balloon, Inflatable object often filled with helium.
-Sunrise, Daily event marking the beginning of daylight.
-Journal, Personal record of daily events or thoughts.
-Bicycle, Two-wheeled vehicle propelled by pedals.
-Diamond, Precious gemstone known for its brilliance.
-Library, Building or room containing collections of books.
-Weekend, Period of time encompassing Saturday and Sunday.
-Traffic, Movement of vehicles on roads or streets.
-Venture, Risky or daring undertaking.
-Harvest, Gathering of ripe crops.
-Proceed, Continue with a course of action.
-Gourmet, Connoisseur of fine food and drink.
-Scribble, Hasty or careless writing or drawing.
-Dynasty, Sequence of rulers from the same family.
-Harvest, Gathering of ripe crops.
-Weather, State of the atmosphere at a particular place and time.
-Nugget, Small lump of gold or valuable information.
-Absolve, Free someone from guilt or blame.
+eclipse, celestial event blocking the sun's light.
+rainbow, colorful arc in the sky after rain.
+backpack, bag worn on the back for carrying items.
+diamond, precious gemstone known for its hardness.
+bicycle, two-wheeled vehicle powered by pedals.
+library, place housing collections of books.
+thunder, sound caused by lightning.
+theater, venue for live performances.
+lantern, portable light source with a protective casing.
+weekend, period of time spanning saturday and sunday.
+weather, atmospheric conditions at a specific time and place.
+concert, musical performance in front of an audience.
+balloon, inflatable object often filled with helium.
+sunrise, daily event marking the beginning of daylight.
+journal, personal record of daily events or thoughts.
+bicycle, two-wheeled vehicle propelled by pedals.
+diamond, precious gemstone known for its brilliance.
+library, building or room containing collections of books.
+weekend, period of time encompassing saturday and sunday.
+traffic, movement of vehicles on roads or streets.
+venture, risky or daring undertaking.
+harvest, gathering of ripe crops.
+proceed, continue with a course of action.
+gourmet, connoisseur of fine food and drink.
+scribble, hasty or careless writing or drawing.
+dynasty, sequence of rulers from the same family.
+harvest, gathering of ripe crops.
+weather, state of the atmosphere at a particular place and time.
+nugget, small lump of gold or valuable information.
+absolve, free someone from guilt or blame.
