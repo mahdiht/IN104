@@ -1,30 +1,30 @@
-Symphony, Elaborate musical composition.
-Elephant, Large mammal with a trunk.
-Password, Secret code for authentication.
-Birthday, Celebration of one's date of birth.
-Hospital, Facility for medical treatment.
-Mountain, Elevated landform with peak.
-Firework, Explosive display for celebrations.
-Tadpole, Young stage of a frog.
-Necklace, Ornament worn around the neck.
-Railroad, System of tracks for trains.
-Midnight, Middle of the night.
-Building, Structure with walls and a roof.
-Football, Popular sport played with a ball.
-Campaign, Organized effort to achieve a goal.
-Festival, Celebration or event with activities.
-Hospital, Facility for medical treatment.
-Mountain, Elevated landform with a peak.
-Language, System of communication.
-Internet, Global computer network.
-Medicine, Substance used to treat illness.
-Painting, Artistic creation using colors.
-Festival, Event marked by celebration and activities.
-Research, Systematic investigation to discover facts.
-Drinking, Act of consuming liquids, often socially.
-Sandwich, Food made of two slices of bread with filling.
-Hospital, Facility for medical treatment and care.
-Festival, Celebratory event with performances and activities.
-Mountain, Large landform rising above its surroundings.
-Campaign, Organized effort to achieve a specific goal.
-Railroad, Network of tracks used for trains.
+symphony, elaborate musical composition.
+elephant, large mammal with a trunk.
+password, secret code for authentication.
+birthday, celebration of one's date of birth.
+hospital, facility for medical treatment.
+mountain, elevated landform with peak.
+firework, explosive display for celebrations.
+tadpole, young stage of a frog.
+necklace, ornament worn around the neck.
+railroad, system of tracks for trains.
+midnight, middle of the night.
+building, structure with walls and a roof.
+football, popular sport played with a ball.
+campaign, organized effort to achieve a goal.
+festival, celebration or event with activities.
+hospital, facility for medical treatment.
+mountain, elevated landform with a peak.
+language, system of communication.
+internet, global computer network.
+medicine, substance used to treat illness.
+painting, artistic creation using colors.
+festival, event marked by celebration and activities.
+research, systematic investigation to discover facts.
+drinking, act of consuming liquids, often socially.
+sandwich, food made of two slices of bread with filling.
+hospital, facility for medical treatment and care.
+festival, celebratory event with performances and activities.
+mountain, large landform rising above its surroundings.
+campaign, organized effort to achieve a specific goal.
+railroad, network of tracks used for trains.
