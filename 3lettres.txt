@@ -1,4 +1,3 @@
-
 cat, A furry pet that purrs.
 sun, The star at the center of our solar system.
 cup, A vessel used for drinking.
