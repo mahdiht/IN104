@@ -1,30 +1,30 @@
-house,Place to call home
-Tiger,Striped feline predator
-Lemon,Yellow citrus fruit
-Mouse,Small rodent often found indoors
-Beach,Sandy shore by the sea
-Snake,Slithery reptile without legs
-Grape,Small fruit often used to make wine
-Clock,Device to tell time
-Chair,Furniture to sit on
-Cloud,Fluffy mass in the sky
-Smile,Curve of happiness
-Maple,Tree known for its syrup
-Music,Art of sound
-Bread,Basic food made from dough
-Earth,Planet we inhabit
-Water,Liquid essential for life
-Angel,Heavenly being
-Smile,Curve of happiness
-Apple,Common fruit
-Plant,Green organism with leaves
-Glint, Brief flash of light
-Mirth, Amusement or laughter
-Quirk, Peculiar or unexpected trait
-Blush, Facial expression indicating embarrassment
-Pluck, Courage or determination
-Mural, Large painting on a wall
-Whisk, Beat or stir rapidly
-Stove, Appliance for cooking food
-Yacht, Luxury boat for leisure
-Comet, Celestial body with a tail of gas and dust
+house,place to call home
+tiger,striped feline predator
+lemon,yellow citrus fruit
+mouse,small rodent often found indoors
+beach,sandy shore by the sea
+snake,slithery reptile without legs
+grape,small fruit often used to make wine
+clock,device to tell time
+chair,furniture to sit on
+cloud,fluffy mass in the sky
+smile,curve of happiness
+maple,tree known for its syrup
+music,art of sound
+bread,basic food made from dough
+earth,planet we inhabit
+water,liquid essential for life
+angel,heavenly being
+smile,curve of happiness
+apple,common fruit
+plant,green organism with leaves
+glint, brief flash of light
+mirth, amusement or laughter
+quirk, peculiar or unexpected trait
+blush, facial expression indicating embarrassment
+pluck, courage or determination
+mural, large painting on a wall
+whisk, beat or stir rapidly
+stove, appliance for cooking food
+yacht, luxury boat for leisure
+comet, celestial body with a tail of gas and dust
