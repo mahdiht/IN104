@@ -1,30 +1,30 @@
-Spring,Season of blooming
-Flower,Blossoming plant
-Planet,Celestial body orbiting a star
-Rocket,Vehicle for space travel
-Turtle,Shelled reptile
-Camera,Device for taking photographs
-Dragon,Mythical fire-breathing creature
-Banana,Yellow tropical fruit
-Guitar,Stringed musical instrument
-Castle,Medieval fortified building
-Mosaic, Artwork made from small pieces.
-Dragon, Mythical creature in legends.
-Jaguar, Large spotted cat native to the Americas.
-Tunnel, Underground passage for transportation.
-Shadow, Dark area created by blocking light.
-Banana, Yellow fruit with a peel.
-Cherry, Small red fruit.
-Rocket, Vehicle for space exploration.
-Silver, Shiny metal often used in jewelry.
-Forest, Dense area with trees and wildlife.
-Doctor, Medical professional
-Market, Place of buying and selling goods
-Sphere, Three-dimensional round object
-Banana, Tropical yellow fruit
-Anchor, Heavy object used to secure a ship
-Circus, Entertainment show with performers and animals
-Rocket, Vehicle used for space travel
-Wisdom, Knowledge and good judgment
-Planet, Celestial body orbiting a star
-Garden, Outdoor space for growing plants
+spring,season of blooming
+flower,blossoming plant
+planet,celestial body orbiting a star
+rocket,vehicle for space travel
+turtle,shelled reptile
+camera,device for taking photographs
+dragon,mythical fire-breathing creature
+banana,yellow tropical fruit
+guitar,stringed musical instrument
+castle,medieval fortified building
+mosaic, artwork made from small pieces.
+dragon, mythical creature in legends.
+jaguar, large spotted cat native to the americas.
+tunnel, underground passage for transportation.
+shadow, dark area created by blocking light.
+banana, yellow fruit with a peel.
+cherry, small red fruit.
+rocket, vehicle for space exploration.
+silver, shiny metal often used in jewelry.
+forest, dense area with trees and wildlife.
+doctor, medical professional
+market, place of buying and selling goods
+sphere, three-dimensional round object
+banana, tropical yellow fruit
+anchor, heavy object used to secure a ship
+circus, entertainment show with performers and animals
+rocket, vehicle used for space travel
+wisdom, knowledge and good judgment
+planet, celestial body orbiting a star
+garden, outdoor space for growing plants
