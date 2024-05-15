@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include <string.h>
 
 //fenetre
@@ -97,9 +97,10 @@ void drawKeyboard();				//dessin du clavier
 void initclavier();				//initalisation de la police du clavier
 void destroyclavier();				//liberer les variables du clavier
 
-//GAME OVER
-void initgameover();
-bool gameover(SDL_Event);
-//BRAVO
+//initgameover.c
+void initgameover();		//initalisation de la fenetre game over
+bool gameover(SDL_Event);	//gestion des evenements de game over
+
+//initbravo.c
 void initbravo();
 bool bravo(SDL_Event);
