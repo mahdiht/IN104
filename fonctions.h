@@ -102,5 +102,5 @@ void initgameover();		//initalisation de la fenetre game over
 bool gameover(SDL_Event);	//gestion des evenements de game over
 
 //initbravo.c
-void initbravo();
-bool bravo(SDL_Event);
+void initbravo();        //initalisation de la fenetre victoire
+bool bravo(SDL_Event);   //gestion des evenements de victoire
