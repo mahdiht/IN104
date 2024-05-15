@@ -1,21 +1,28 @@
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+#include <string.h>
 
 #define width 800
 #define height 600
 
-#define MAX_WORD_LENGTH 200
-#define LEN_MAX 25 //9adeh el utilisateur inajem yekteb men 7arf nbadloha mba3d nrodoha tetbadel bel difficulteet
 
 
-extern const char* word;
+
+
+	
+extern char word[10];
+extern char hint[80];
 extern int essais;
 extern char brouillon[10];
-extern char stickman[13];
-extern char difficulte[12];
+extern char stickman[14];
+extern char difficulte[13];
 
-extern char saisi[MAX_WORD_LENGTH];
+extern char saisi[10];
 extern int len_s;
 
 extern SDL_Window *window;
@@ -24,14 +31,16 @@ extern SDL_Surface* icon;
 extern int scene;
 extern SDL_Texture * backgroundTexture;
 extern TTF_Font *font;
+extern bool newscene;
 
 
 // jeu
 extern SDL_Texture * image_texture;
+extern SDL_Rect image_destination;
 
 //fonctions.c
-void separateWords(char *input_string, char **word, char **hint);
-void lireligneAleatoire(const char* nomFichier,char **word, char **hint);
+void separateWords(char *input_string);
+void lireligneAleatoire(const char* nomFichier);
 
 
 //init.c
@@ -46,14 +55,16 @@ void afficherTexte(SDL_Renderer *renderer, TTF_Font *font, const char *texte, in
 void afficherArrierePlan(SDL_Texture *backgroundTexture);
 
 //play.c
+void choixmot();
 void hangman(char* saisi);
 void initjeu();
 void destroyjeu();
+bool play(SDL_Event event);
 
 //mainmenu.c
 void initmenu();
-void menu(SDL_Event event);
+bool menu(SDL_Event event);
 
 //option.c
 void initoption();
-void option(SDL_Event event);
+bool option(SDL_Event event);	

@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 
 #include "fonctions.h"
 
@@ -51,8 +51,8 @@ void destroy(){
 
 	SDL_DestroyTexture(backgroundTexture);
 	SDL_FreeSurface(icon);
-	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
+	SDL_DestroyRenderer(renderer);
 	TTF_Quit();
 	IMG_Quit();
 	SDL_Quit();
