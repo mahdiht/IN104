@@ -12,7 +12,7 @@
 void initoption(){
     
     
-	afficherTexte(renderer, font, "Options", 300, 50);
+	afficherTexte(renderer, font, "Options", 330, 50);
 	char text[9]="3 Lettres";
 	SDL_SetRenderDrawColor(renderer, 150, 50, 100, 40); // Couleur gris clair
 	for (int i = 3; i <= 8; i++) {    
@@ -21,7 +21,7 @@ void initoption(){
 		
 		SDL_RenderFillRect(renderer, &cadre);
 		
-		afficherTexte(renderer, font, text, cadre.x + cadre.w / 2 - 40, cadre.y + cadre.h / 2 - 12);
+		afficherTexte(renderer, font, text, cadre.x + cadre.w / 2 - 80, cadre.y + cadre.h / 2 - 18);
 	}
 	
 	newscene=false;

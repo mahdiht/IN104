@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#include <string.h>
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -71,8 +72,8 @@ void initjeu(){
 
 	
 	// affichage text
-	afficherTexte(renderer, font, brouillon, 0, 100);
-	afficherTexte(renderer, font, hint, 0, 200);
+	afficherTexte(renderer, font, brouillon, 400-(strlen(brouillon)/2)*23.4, 300);
+	afficherTexte(renderer, font, hint, 400-(strlen(hint)/2)*23.4, 350);
 //	afficherTexte(renderer, font, saisi, 0, 200);
 
 
@@ -151,8 +152,8 @@ bool play(SDL_Event event){
 	afficherArrierePlan(backgroundTexture); //arriere plan
 		
 	SDL_RenderCopy(renderer, image_texture, NULL, &image_destination);
-	afficherTexte(renderer, font, brouillon, 0, 100);
-	afficherTexte(renderer, font, hint, 0, 200);
+	afficherTexte(renderer, font, brouillon, 400-(strlen(brouillon)/2)*23.4, 300);
+	afficherTexte(renderer, font, hint, 400-(strlen(hint)/2)*23.4, 350);
 	if (saisi != NULL && *saisi != '\0')
 		afficherTexte(renderer, font, saisi, 0, 300);
 	
