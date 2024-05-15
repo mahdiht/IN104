@@ -96,3 +96,10 @@ void checkMouseOverButton(int x, int y);	//verification que la souris est au des
 void drawKeyboard();				//dessin du clavier
 void initclavier();				//initalisation de la police du clavier
 void destroyclavier();				//liberer les variables du clavier
+
+//GAME OVER
+void initgameover();
+bool gameover(SDL_Event);
+//BRAVO
+void initbravo();
+bool bravo(SDL_Event);

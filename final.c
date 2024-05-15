@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-
+#include <unistd.h>
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -54,7 +54,7 @@ int main(int argc, char **argv){
 
 	
 // initialisation police 
-	font = TTF_OpenFont("font.ttf", 24);
+	font = TTF_OpenFont("font.ttf", 36);
 	
 
 
@@ -67,7 +67,7 @@ int main(int argc, char **argv){
 	while (!fin){
 		
 		SDL_WaitEvent(&event);	//attendre indefiniment un evenement
-		
+
 		if (event.type == SDL_QUIT){	//fermeture
 			fin = true;
 			break;
@@ -81,11 +81,34 @@ int main(int argc, char **argv){
 				if (option(event))
 					continue;
 			}
-			else{	//jeu
+			else if(scene==3){	
+				//options	
+				if (gameover(event))
+					continue;
+			}	
+			else if(scene==4){	//options	
+				if (bravo(event))
+					continue;
+			}					
+			else{
+												if (essais==6){
+	
+				newscene=true;
+				scene=3;
+				sleep(1);
+				}
+			if (strcmp(word, brouillon) == 0){
+
+				newscene=true;
+				scene=4;
+				sleep(1);
+				}	//jeu
+
 				if (play(event))
 					continue;
 
 			}
+
 		}
 		
 		if(newscene){	//on ouvre une nouvelle fenetre
@@ -97,6 +120,13 @@ int main(int argc, char **argv){
 			else if(scene==1){	//options	
 				initoption();
 			}
+			else if(scene==3){
+				
+				initgameover();
+			}
+			else if(scene==4){
+				initbravo();
+			}			
 			else{	//jeu
 				choixmot();	//choix du mot
 				initclavier();

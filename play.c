@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-
+#include <unistd.h>
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -52,18 +52,23 @@ void hangman(char* saisi){
 			//verification fin du jeu	
 	if (strcmp(word, brouillon) == 0) {
 		puts("Bravo, vous avez trouvé le mot !");
+
 	}	
 	else if(essais<6){
 		stickman[8]='0'+essais;
+	
+		
+
 		image_texture = ImporterImage(stickman, renderer);
-		char message[50];
-    		sprintf(message, "Il vous reste %d essais\n", 6 - essais);
-		puts(message);
+
+		//puts(message);
 	}
 	else{
 		stickman[8]='0'+6;
 		image_texture = ImporterImage(stickman, renderer);
 		puts("Game over");
+
+		
 	}
 				
 }
@@ -169,10 +174,18 @@ bool play(SDL_Event event){
 	//dessin
 //	SDL_RenderClear(renderer); //clear
 	afficherArrierePlan(backgroundTexture); //arriere plan
-		
+
 	SDL_RenderCopy(renderer, image_texture, NULL, &image_destination);
+	
 	afficherTexte(renderer, font, brouillon, 400-(strlen(brouillon)/2)*23.4, 300);
 	afficherTexte(renderer, font, hint, 400-(strlen(hint)/2)*23.4, 350);
+	if ((essais>0)&&(essais<6)){
+			char scoreText[50];
+    sprintf(scoreText, "Il vous reste %d essais", 6-essais);
+	afficherTexte(renderer, font,scoreText ,10, 10);
+	}
+
+
 	if (saisi != NULL && *saisi != '\0')
 		afficherTexte(renderer, font, saisi, 0, 300);
 		

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-
+#include <string.h>
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -40,7 +40,7 @@ void init(){
 	SDL_SetWindowIcon(window, icon);
 	
 //arriere plan
-	backgroundTexture= ImporterImage("ap.png", renderer);
+	backgroundTexture= ImporterImage("4.png", renderer);
 	
 
 }

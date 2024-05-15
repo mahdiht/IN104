@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-
+#include <string.h>
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -11,9 +11,9 @@
 // fonction qui va charger l'image en une texture lisible par SDL
 SDL_Texture *ImporterImage(const char* file_name, SDL_Renderer *renderer){
 	SDL_Surface *image = IMG_Load(file_name);
-	SDL_Texture * texture_x = SDL_CreateTextureFromSurface(renderer, image);
+	SDL_Texture * image_texture = SDL_CreateTextureFromSurface(renderer, image);
 	SDL_FreeSurface(image);
-	return texture_x;
+	return image_texture;
 }
 
 // fonction pour créer des rectangles
