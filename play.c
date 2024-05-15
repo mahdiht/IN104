@@ -2,10 +2,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#include <string.h>
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 
 #include "fonctions.h"
 
@@ -50,6 +49,23 @@ void hangman(char* saisi){
 		}
 	}
 	
+			//verification fin du jeu	
+	if (strcmp(word, brouillon) == 0) {
+		puts("Bravo, vous avez trouvé le mot !");
+	}	
+	else if(essais<6){
+		stickman[8]='0'+essais;
+		image_texture = ImporterImage(stickman, renderer);
+		char message[50];
+    		sprintf(message, "Il vous reste %d essais\n", 6 - essais);
+		puts(message);
+	}
+	else{
+		stickman[8]='0'+6;
+		image_texture = ImporterImage(stickman, renderer);
+		puts("Game over");
+	}
+				
 }
 
 
@@ -99,23 +115,6 @@ bool play(SDL_Event event){
 			
 		else if (event.key.keysym.sym==SDLK_RETURN && len_s){  //confirmer la saisie
 			hangman(saisi);				
-			
-			//verification fin du jeu	
-			if (strcmp(word, brouillon) == 0) {
-				puts("Bravo, vous avez trouvé le mot !");
-			}	
-			else if(essais<6){
-				stickman[8]='0'+essais;
-				image_texture = ImporterImage(stickman, renderer);
-				char message[50];
-    				sprintf(message, "Il vous reste %d essais\n", 6 - essais);
-				puts(message);
-			}
-			else{
-				stickman[8]='0'+6;
-				image_texture = ImporterImage(stickman, renderer);
-				puts("Game over");
-			}
 											
 			memset(saisi, 0, sizeof(saisi));	//vider saisi completement
 			len_s=0;
@@ -140,6 +139,26 @@ bool play(SDL_Event event){
 		len_s += l1;
 		asaisi=true;
 	}
+	else if(event.type == SDL_MOUSEBUTTONDOWN) {
+		int x, y;
+		SDL_GetMouseState(&x, &y);
+		checkMouseOverButton(x, y);
+		if (gMouseOverButton) {
+			//convertir en chaine
+			char temp[2];
+			temp[0]= gLetters[gHoveredButton] + 'a' - 'A';
+			temp[1] = '\0';
+			
+			hangman(temp);
+			printf("Letter clicked: %c\n", gLetters[gHoveredButton]);
+			gButtonState[gHoveredButton] = !gButtonState[gHoveredButton]; // Inverser l'état du bouton
+		}
+	}
+	else if (event.type == SDL_MOUSEMOTION){
+		int x, y;
+		SDL_GetMouseState(&x, &y);
+		checkMouseOverButton(x, y);
+	}
 	else
 		return true;
 			
@@ -148,7 +167,7 @@ bool play(SDL_Event event){
 	}
 			
 	//dessin
-	SDL_RenderClear(renderer); //clear
+//	SDL_RenderClear(renderer); //clear
 	afficherArrierePlan(backgroundTexture); //arriere plan
 		
 	SDL_RenderCopy(renderer, image_texture, NULL, &image_destination);
@@ -156,6 +175,9 @@ bool play(SDL_Event event){
 	afficherTexte(renderer, font, hint, 400-(strlen(hint)/2)*23.4, 350);
 	if (saisi != NULL && *saisi != '\0')
 		afficherTexte(renderer, font, saisi, 0, 300);
+		
+	//clavier
+	drawKeyboard();
 	
 	return false;
 }

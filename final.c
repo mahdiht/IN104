@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 
 #include "fonctions.h"
 
@@ -72,7 +72,7 @@ int main(int argc, char **argv){
 			fin = true;
 			break;
 		}	
-		else if (!newscene){
+		else if (!newscene){	
 			if(scene==0){	//menu principal
 				if (menu(event))
 					continue;
@@ -88,7 +88,7 @@ int main(int argc, char **argv){
 			}
 		}
 		
-		if(newscene){
+		if(newscene){	//on ouvre une nouvelle fenetre
 			SDL_RenderClear(renderer); //clear
 			afficherArrierePlan(backgroundTexture); //arriere plan
 			if(scene==0){	//menu principal
@@ -99,6 +99,7 @@ int main(int argc, char **argv){
 			}
 			else{	//jeu
 				choixmot();	//choix du mot
+				initclavier();
 				initjeu();
 			}
 		}
@@ -113,8 +114,10 @@ int main(int argc, char **argv){
 
 // liberation et destruction
 	destroyjeu();
+	destroyclavier();
 	TTF_CloseFont(font);
 	destroy();
+	
 
 	return 0;
 }
