@@ -2,10 +2,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <unistd.h>
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
-
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include "fonctions.h"
 
 
@@ -61,6 +60,7 @@ int main(int argc, char **argv){
 	
 // gestion des evenements 
 	afficherArrierePlan(backgroundTexture); //initialisation arriere plan
+	brouillon[0]='_';	//initialisation (du brouillon pour le differencier de word)
 	
 	SDL_Event event;	//file pour gerer les evenement 
 	bool fin = false; 	//verifie si le programme est en marche
@@ -81,35 +81,38 @@ int main(int argc, char **argv){
 				if (option(event))
 					continue;
 			}
-			else if(scene==3){	
-				//options	
+			else if(scene==3){	//defaite
 				if (gameover(event))
 					continue;
 			}	
-			else if(scene==4){	//options	
+			else if(scene==4){	//victoire	
 				if (bravo(event))
 					continue;
 			}					
-			else{
-												if (essais==6){
-	
-				newscene=true;
-				scene=3;
-				sleep(1);
-				}
-			if (strcmp(word, brouillon) == 0){
-
-				newscene=true;
-				scene=4;
-				sleep(1);
-				}	//jeu
-
+			else{			//jeu
 				if (play(event))
 					continue;
 
 			}
 
 		}
+		
+		
+		//verification fin du jeu
+		if (essais==6){
+			SDL_RenderPresent(renderer); //present (car sinon on va quitter sans dessiner le pendu entier)
+			newscene=true;
+			scene=3;
+			sleep(1);
+		}
+		else if (strcmp(word, brouillon) == 0){
+			SDL_RenderPresent(renderer); //present (car sinon on va quitter sans ecrire le mot entier)
+			newscene=true;
+			scene=4;
+			brouillon[0]='_';	//reinitialisation de brouillon pour eviter de ce bloquer
+			sleep(1);
+		}	
+
 		
 		if(newscene){	//on ouvre une nouvelle fenetre
 			SDL_RenderClear(renderer); //clear
