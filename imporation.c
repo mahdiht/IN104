@@ -2,18 +2,18 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 
 #include "fonctions.h"
 
 // fonction qui va charger l'image en une texture lisible par SDL
 SDL_Texture *ImporterImage(const char* file_name, SDL_Renderer *renderer){
 	SDL_Surface *image = IMG_Load(file_name);
-	SDL_Texture * image_texture = SDL_CreateTextureFromSurface(renderer, image);
+	SDL_Texture * texture_x = SDL_CreateTextureFromSurface(renderer, image);
 	SDL_FreeSurface(image);
-	return image_texture;
+	return texture_x;
 }
 
 // fonction pour créer des rectangles
