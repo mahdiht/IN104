@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <unistd.h>
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+
 
 #include "fonctions.h"
 
@@ -148,7 +149,7 @@ bool play(SDL_Event event){
 		int x, y;
 		SDL_GetMouseState(&x, &y);
 		checkMouseOverButton(x, y);
-		if (gMouseOverButton) {
+		if ((gMouseOverButton)&&(!gButtonState[gHoveredButton])) {
 			//convertir en chaine
 			char temp[2];
 			temp[0]= gLetters[gHoveredButton] + 'a' - 'A';
@@ -156,7 +157,7 @@ bool play(SDL_Event event){
 			
 			hangman(temp);
 			printf("Letter clicked: %c\n", gLetters[gHoveredButton]);
-			gButtonState[gHoveredButton] = !gButtonState[gHoveredButton]; // Inverser l'état du bouton
+			gButtonState[gHoveredButton] = true; // Inverser l'état du bouton
 		}
 	}
 	else if (event.type == SDL_MOUSEMOTION){

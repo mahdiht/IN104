@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+
 #include <time.h>
 
 #include "fonctions.h"
@@ -72,7 +73,7 @@ void drawKeyboard() {
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_Color textColor = { 0, 0, 0 };
     for(int i = 0; i < NUM_LETTERS; i++) {
-        if (i == gHoveredButton && gMouseOverButton) {
+        if (i == gHoveredButton && gMouseOverButton && !gButtonState[gHoveredButton]) {
             SDL_SetRenderDrawColor(renderer, buttonHoverColor.r, buttonHoverColor.g, buttonHoverColor.b, buttonHoverColor.a);
         } else {
             if (gButtonState[i]) {
