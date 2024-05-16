@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 
 #include <time.h>
 
@@ -19,6 +19,8 @@ SDL_Color buttonPressedColorAorH = { 0x00, 0xFF, 0x00, 0x80 }; // Vert
 SDL_Color buttonPressedColorOther = { 0xFF, 0x00, 0x00, 0x80 }; // Rouge
 
 bool gButtonState[NUM_LETTERS] = {false}; // Initialise tous les boutons à l'état désactivé
+
+bool newstate=true;	//par defaut y a un changement detat
 
 
 int gHoveredButton = -1;
@@ -59,13 +61,23 @@ void checkMouseOverButton(int x, int y) {
     gMouseOverButton = false;
     for(int i = 0; i < NUM_LETTERS; i++) {
         if(x >= gButtons[i].x && x <= gButtons[i].x + gButtons[i].w && y >= gButtons[i].y && y <= gButtons[i].y + gButtons[i].h) {
-            gHoveredButton = i;
-            gMouseOverButton = true;
+            gMouseOverButton = true;	
+            if (gHoveredButton == i)
+            	newstate=false;
+            else{
+            	newstate=true;
+            	gHoveredButton = i;
+            }
             break;
         }
     }
     if (!gMouseOverButton) {
-        gHoveredButton = -1;
+    	if (gHoveredButton == -1)
+    		newstate=false;
+    	else{
+    		newstate=true;
+        	gHoveredButton = -1;
+        }
     }
 }
 

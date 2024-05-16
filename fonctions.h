@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include <string.h>
 
 //fenetre
@@ -58,6 +58,8 @@ extern bool gButtonState[NUM_LETTERS]; 	//activation ou desactivation des bouton
 
 extern int gHoveredButton;	//quel bouton se trouve sous la souris
 extern bool gMouseOverButton; //verification que la souris est au dessus dun bouton
+
+extern bool newstate;	//verification du changement d'etat du clavier
 
 //fonctions.c
 void separateWords(char *input_string);		//separer le mot de son indice a partir d'une ligne du fichier texte

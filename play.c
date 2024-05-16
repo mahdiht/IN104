@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <unistd.h>
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+
 
 #include "fonctions.h"
 
@@ -163,6 +164,8 @@ bool play(SDL_Event event){
 		int x, y;
 		SDL_GetMouseState(&x, &y);
 		checkMouseOverButton(x, y);
+		if (!newstate)
+			return true;
 	}
 	else
 		return true;
