@@ -131,6 +131,7 @@ int main(int argc, char **argv){
 				initbravo();
 			}			
 			else{	//jeu
+				gHoveredButton = -1;
 				choixmot();	//choix du mot
 				initclavier();
 				initjeu();
