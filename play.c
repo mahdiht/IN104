@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <unistd.h>
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 
 
 #include "fonctions.h"
@@ -37,6 +37,7 @@ void hangman(char* saisi){
 		else {
 			essais++;
 		}
+		gButtonState[saisi[0]-'a'] = true; // Inverser l'état du bouton
 	}
 		
 	else{
@@ -157,7 +158,6 @@ bool play(SDL_Event event){
 			
 			hangman(temp);
 			printf("Letter clicked: %c\n", gLetters[gHoveredButton]);
-			gButtonState[gHoveredButton] = true; // Inverser l'état du bouton
 		}
 	}
 	else if (event.type == SDL_MOUSEMOTION){
