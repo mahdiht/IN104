@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <unistd.h>
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 
 
 #include "fonctions.h"
@@ -26,18 +26,20 @@ void choixmot(){
 void hangman(char* saisi){
 		
 	if (strlen(saisi)==1){
-		if (strchr(word, saisi[0]) != NULL) {
-			puts("Bravo, la lettre est dans le mot !");
-			for (int i = 0; i < strlen(word); i++) {
-				if (word[i] == saisi[0]) {
-					brouillon[i] = saisi[0];
+		if (!gButtonState[saisi[0]-'a']){
+			if (strchr(word, saisi[0]) != NULL) {
+				puts("Bravo, la lettre est dans le mot !");
+				for (int i = 0; i < strlen(word); i++) {
+					if (word[i] == saisi[0]) {
+						brouillon[i] = saisi[0];
+					}
 				}
 			}
+			else {
+				essais++;
+			}
+			gButtonState[saisi[0]-'a'] = true; // Inverser l'état du bouton
 		}
-		else {
-			essais++;
-		}
-		gButtonState[saisi[0]-'a'] = true; // Inverser l'état du bouton
 	}
 		
 	else{
@@ -159,6 +161,8 @@ bool play(SDL_Event event){
 			hangman(temp);
 			printf("Letter clicked: %c\n", gLetters[gHoveredButton]);
 		}
+		else
+			return true;
 	}
 	else if (event.type == SDL_MOUSEMOTION){
 		int x, y;
