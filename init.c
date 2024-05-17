@@ -27,7 +27,7 @@ void init(){
 	TTF_Init();
 	
 // creation d'une fenetre 
-	window = SDL_CreateWindow("HANGMAN TEST", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_OPENGL);
+	window = SDL_CreateWindow("HANGMAN", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_OPENGL);
 	CHECK_ERROR(window == NULL, SDL_GetError());
 
 // creation d'un renderer 
@@ -40,7 +40,7 @@ void init(){
 	SDL_SetWindowIcon(window, icon);
 	
 //arriere plan
-	backgroundTexture= ImporterImage("4.png", renderer);
+	backgroundTexture= ImporterImage("ap.png", renderer);
 	
 
 }

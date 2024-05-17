@@ -43,6 +43,7 @@
 	SDL_Surface* icon;
 	int scene=0;
 	TTF_Font *font;
+	TTF_Font *fontt;
 	bool newscene=true;
 
 int main(int argc, char **argv){
@@ -54,6 +55,7 @@ int main(int argc, char **argv){
 	
 // initialisation police 
 	font = TTF_OpenFont("font.ttf", 36);
+	fontt= TTF_OpenFont("font.ttf", 25);
 	
 
 
@@ -129,9 +131,11 @@ int main(int argc, char **argv){
 			}
 			else if(scene==4){
 				initbravo();
-			}			
+				
+			}
+						
 			else{	//jeu
-				gHoveredButton = -1;
+				gHoveredButton=-1;
 				choixmot();	//choix du mot
 				initclavier();
 				initjeu();
@@ -150,6 +154,7 @@ int main(int argc, char **argv){
 	destroyjeu();
 	destroyclavier();
 	TTF_CloseFont(font);
+	TTF_CloseFont(fontt);
 	destroy();
 	
 

@@ -26,19 +26,16 @@ void choixmot(){
 void hangman(char* saisi){
 		
 	if (strlen(saisi)==1){
-		if (!gButtonState[saisi[0]-'a']){
-			if (strchr(word, saisi[0]) != NULL) {
-				puts("Bravo, la lettre est dans le mot !");
-				for (int i = 0; i < strlen(word); i++) {
-					if (word[i] == saisi[0]) {
-						brouillon[i] = saisi[0];
-					}
+		if (strchr(word, saisi[0]) != NULL) {
+			puts("Bravo, la lettre est dans le mot !");
+			for (int i = 0; i < strlen(word); i++) {
+				if (word[i] == saisi[0]) {
+					brouillon[i] = saisi[0];
 				}
 			}
-			else {
-				essais++;
-			}
-			gButtonState[saisi[0]-'a'] = true; // Inverser l'état du bouton
+		}
+		else {
+			essais++;
 		}
 	}
 		
@@ -85,7 +82,7 @@ void initjeu(){
 	image_texture = ImporterImage(stickman, renderer);	
 	int image_width, image_height;
 	SDL_QueryTexture(image_texture, NULL, NULL, &image_width, &image_height);	
-	image_destination = rectangle(212,50,image_width,image_height);
+	image_destination = rectangle(220,50,image_width,image_height);
 
 
 	SDL_RenderCopy(renderer, image_texture, NULL, &image_destination);
@@ -97,8 +94,8 @@ void initjeu(){
 
 	
 	// affichage text
-	afficherTexte(renderer, font, brouillon, 400-(strlen(brouillon)/2)*23.4, 300);
-	afficherTexte(renderer, font, hint, 400-(strlen(hint)/2)*23.4, 350);
+	afficherTexte(renderer, font, brouillon, 400-(strlen(brouillon)/2)*23.7, 300);
+	afficherTexte(renderer, fontt, hint, 400-(strlen(hint)/2)*13.1, 350);
 //	afficherTexte(renderer, font, saisi, 0, 200);
 
 
@@ -160,9 +157,8 @@ bool play(SDL_Event event){
 			
 			hangman(temp);
 			printf("Letter clicked: %c\n", gLetters[gHoveredButton]);
+			gButtonState[gHoveredButton] = true; // Inverser l'état du bouton
 		}
-		else
-			return true;
 	}
 	else if (event.type == SDL_MOUSEMOTION){
 		int x, y;
@@ -184,11 +180,11 @@ bool play(SDL_Event event){
 
 	SDL_RenderCopy(renderer, image_texture, NULL, &image_destination);
 	
-	afficherTexte(renderer, font, brouillon, 400-(strlen(brouillon)/2)*23.4, 300);
-	afficherTexte(renderer, font, hint, 400-(strlen(hint)/2)*23.4, 350);
+	afficherTexte(renderer, font, brouillon, 400-(strlen(brouillon)/2)*23.7, 300);
+	afficherTexte(renderer, fontt, hint, 400-(strlen(hint)/2)*13.1, 350);
 	if ((essais>0)&&(essais<6)){
 			char scoreText[50];
-    sprintf(scoreText, "Il vous reste %d essais", 6-essais);
+    sprintf(scoreText, "%d ATTEMPTS LEFT", 6-essais);
 	afficherTexte(renderer, font,scoreText ,10, 10);
 	}
 

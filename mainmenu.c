@@ -13,7 +13,7 @@
 
 void initmenu(){
 	// Afficher le titre du menu principal
-	afficherTexte(renderer, font, "Menu Principal", 270, 170);
+	afficherTexte(renderer, font, "MAIN MENU", 310, 170);
 
 	 // Définir les dimensions et la position des cadres rectangulaires pour chaque bouton
     SDL_Rect cadreJouer = {250, 240, 300, 50};
@@ -25,8 +25,8 @@ void initmenu(){
 	SDL_RenderFillRect(renderer, &cadreOptions);
 
 	// Afficher le texte des boutons centrés dans les cadres rectangulaires
-	afficherTexte(renderer, font, "Jouer", cadreJouer.x + cadreJouer.w / 2 - 55, cadreJouer.y + cadreJouer.h / 2 - 16);
-	afficherTexte(renderer, font, "Options", cadreOptions.x + cadreOptions.w / 2 - 70, cadreOptions.y + cadreOptions.h / 2 - 18);
+	afficherTexte(renderer, font, "PLAY", cadreJouer.x + cadreJouer.w / 2 - 41, cadreJouer.y + cadreJouer.h / 2 - 16);
+	afficherTexte(renderer, font, "OPTIONS", cadreOptions.x + cadreOptions.w / 2 - 70, cadreOptions.y + cadreOptions.h / 2 - 18);
 	
 	newscene=false;
 }

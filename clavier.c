@@ -113,7 +113,7 @@ void drawKeyboard() {
 
 //initalisation du clavier
 void initclavier() {
-    gFont = TTF_OpenFont("arial.ttf", 28); // Change the path and size as needed
+    gFont = TTF_OpenFont("font.ttf", 28); // Change the path and size as needed
     if(gFont == NULL) {
         printf("Failed to load font! SDL_ttf Error: %s\n", TTF_GetError());
     }
