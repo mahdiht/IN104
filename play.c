@@ -97,6 +97,8 @@ void initjeu(){
 	afficherTexte(renderer, font, brouillon, 400-(strlen(brouillon)/2)*23.7, 300);
 	afficherTexte(renderer, fontt, hint, 400-(strlen(hint)/2)*13.1, 350);
 //	afficherTexte(renderer, font, saisi, 0, 200);
+	if (saisi != NULL && *saisi != '\0')
+		afficherTexte(renderer, font, saisi, 0, 300);
 
 
 	newscene=false;
