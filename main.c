@@ -7,16 +7,6 @@
 #include <SDL_ttf.h>
 #include "fonctions.h"
 
-
-
-// Utility macros ntestiw beha el code
-#define CHECK_ERROR(test, message) \
-    do { \
-        if((test)) { \
-            fprintf(stderr, "%s\n", (message)); \
-            exit(1); \
-        } \
-    } while(0)
     
 // initilisation jeu hangman comme variables globals
 	char word[10];
