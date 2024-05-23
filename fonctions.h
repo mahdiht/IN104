@@ -39,6 +39,7 @@ extern SDL_Surface* icon;			//icone
 extern int scene;				//gestion de la scene actuel
 extern SDL_Texture * backgroundTexture;	//arriere plan
 extern TTF_Font *font;				//police principale
+extern TTF_Font *fontt;			//police secondaire
 extern bool newscene;				//verifie si une nouvelle scene a ete ouverte
 
 
